@@ -38,4 +38,6 @@ export type myCard = {
     id:string | number[],
     name: string,
     description: string,
+    color: string,
+    text: string,
 }

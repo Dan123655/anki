@@ -31,10 +31,10 @@ const Slideshow = observer(() => {
 
   return (
     <>
-      <View className='bg-slate-700 flex-1  items-center pt-8 justify-center'>
+      <View className={`flex-1  items-center pt-8 justify-center`}>
 
         
-      <View className='bg-slate-700 flex-1 max-h-[470px] bottom-8  items-center justify-center'>
+      <View className='flex-1 max-h-[470px] bottom-8  items-center justify-center'>
 
         <Swiper
             horizontal={false}
@@ -42,8 +42,9 @@ const Slideshow = observer(() => {
           
             >
           
-        {cards.map((card, key) => {
-          return <Slide key={key} id={card.id} name={card.name} description={card.description} />
+            {cards.map((card, key) => {
+    
+              return <Slide key={key} id={card.id} name={card.name} text={ card.text} color={card.color}  description={card.description} />
         })}
         </Swiper>
         

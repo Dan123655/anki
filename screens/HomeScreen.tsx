@@ -21,13 +21,13 @@ const HomeScreen = observer<any>(() =>
     }, [manageCards.myCards]);
   return (
     <>
-    <View className="flex-1 bg-white-400 flex-col pt-3 bg-yellow-400 justify-center items-center">
+    <View className="flex-1 bg-white-400 flex-col pt-3 bg-white justify-center items-center">
     <ScrollView className="mt-4 w-[100%]">
     <View className="flex-1 items-center mx-3 justify-center">
           
         {manageCards.myCards.map((card, key) => {
 
-        return  <Card key={key} id={card.id} name={card.name} description={card.description}/>
+          return <Card key={key} id={card.id} name={card.name} description={card.description} color={card.color} text={ card.text} />
 
         })}
 
