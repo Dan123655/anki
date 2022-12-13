@@ -94,12 +94,12 @@ const AddCard = observer<any>(() => {
       {descSubmitted && 
         <>
         <View className="flex-row items-center justify-between px-4 bg-slate-200 rounded-full h-16 w-[95%] mt-5">
-          <TouchableOpacity className="bg-orange-500 h-10 w-10 rounded-full" onPress={() => {setColor('bg-orange-500'); manageCards.color(color)  }}></TouchableOpacity>
-          <TouchableOpacity className="bg-red-600 h-10 w-10 rounded-full" onPress={() => { setColor('bg-red-600') ; manageCards.color(color)}}></TouchableOpacity>
-          <TouchableOpacity className="bg-slate-900 h-10 w-10 rounded-full" onPress={() => { setColor('bg-slate-900') ; manageCards.color(color)}}></TouchableOpacity>
-          <TouchableOpacity className="bg-sky-500 h-10 w-10 rounded-full" onPress={() => { setColor('bg-sky-500'); manageCards.color(color) }}></TouchableOpacity>
-          <TouchableOpacity className="bg-lime-500 h-10 w-10 rounded-full" onPress={() => { setColor('bg-lime-500'); manageCards.color(color) }}></TouchableOpacity>
-          <TouchableOpacity className="bg-fuchsia-500 h-10 w-10 rounded-full" onPress={() => { setColor('bg-fuchsia-500') ; manageCards.color(color)}}></TouchableOpacity>
+          <TouchableOpacity className="bg-orange-500 h-10 w-10 rounded-full" onPress={() => {setColor('bg-orange-500'); manageCards.color('bg-orange-500')  }}></TouchableOpacity>
+          <TouchableOpacity className="bg-red-600 h-10 w-10 rounded-full" onPress={() => { setColor('bg-red-600') ; manageCards.color('bg-red-600')}}></TouchableOpacity>
+          <TouchableOpacity className="bg-slate-900 h-10 w-10 rounded-full" onPress={() => { setColor('bg-slate-900') ; manageCards.color('bg-slate-900')}}></TouchableOpacity>
+          <TouchableOpacity className="bg-sky-500 h-10 w-10 rounded-full" onPress={() => { setColor('bg-sky-500'); manageCards.color('bg-sky-500') }}></TouchableOpacity>
+          <TouchableOpacity className="bg-lime-500 h-10 w-10 rounded-full" onPress={() => { setColor('bg-lime-500'); manageCards.color('bg-lime-500') }}></TouchableOpacity>
+          <TouchableOpacity className="bg-fuchsia-500 h-10 w-10 rounded-full" onPress={() => { setColor('bg-fuchsia-500') ; manageCards.color('bg-fuchsia-500')}}></TouchableOpacity>
           
         </View>
         <View className="flex-row items-center justify-between bg-slate-200 rounded-full h-16 w-[95%] mt-5">
