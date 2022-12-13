@@ -32,4 +32,10 @@ export type mainDataProps = {
     medium?: any,
     url?:string
     
-    }
+}
+    
+export type myCard = {
+    id:string | number[],
+    name: string,
+    description: string,
+}
