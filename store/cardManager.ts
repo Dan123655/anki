@@ -7,10 +7,10 @@ class manageCards {
   newText: string = "white";
   newColor: string = "bg-slate-800";
   myCards: myCard[] =
-    [{ "color": "bg-slate-800", "text":"white","description": "Cepitol of greit Briton7", "id": "d8b975bd-0002-43a8-b98f-e78e08bf4b6b", "name": "Lundun" },
-      { "color": "bg-lime-500", "text":"white","description": "A free and open source programming language by Microsoft. A superset of JavaScript, adds optional static typing to the language.", "id": "0d369017-c8ff-4a30-933c-8a22e13c4c52", "name": "Typescript" },
-      { "color": "bg-orange-500", "text":"white","description": "She's so fat, I swerved to miss her in my car and ran out of gas.", "id": "c8c593d8-71b4-47b3-9cce-8a8b09f4430e", "name": "Yo mama" }]
-    constructor() {
+    [{ "color": "bg-slate-800", "text": "white", "description": "Cepitol of greit Briton7", "id": "d8b975bd-0002-43a8-b98f-e78e08bf4b6b", "name": "Lundun" },
+    { "color": "bg-lime-500", "text": "white", "description": "A free and open source programming language by Microsoft. A superset of JavaScript, adds optional static typing to the language.", "id": "0d369017-c8ff-4a30-933c-8a22e13c4c52", "name": "Typescript" },
+    { "color": "bg-orange-500", "text": "white", "description": "She's so fat, I swerved to miss her in my car and ran out of gas.", "id": "c8c593d8-71b4-47b3-9cce-8a8b09f4430e", "name": "Yo mama" }]
+  constructor() {
     makeAutoObservable(this);
   }
   newName(value: string) {
@@ -23,20 +23,20 @@ class manageCards {
     this.newCardNameInput = "";
     this.newDescription = "";
   }
-  text(text:string){
+  text(text: string) {
     this.newText = text;
   }
-  color(color:string){
+  color(color: string) {
     this.newColor = color;
   }
   saveCard() {
 
-      const newCard = {
-        id:uuid.v4(),
+    const newCard = {
+      id: uuid.v4(),
       name: this.newCardNameInput,
-        description: this.newDescription,
-        color: this.newColor,
-        text: this.newText
+      description: this.newDescription,
+      color: this.newColor,
+      text: this.newText
     };
     this.myCards.push(newCard);
     this.clear();
@@ -44,8 +44,21 @@ class manageCards {
   }
   
 
-    deleteCard(id:string|number[]){
-      this.myCards = this.myCards.filter((card)=>card.id !== id)
-    }
+  deleteCard(id: string | number[]) {
+    this.myCards = this.myCards.filter((card) => card.id !== id)
+  }
+  
+  editCard(id: string | number[], name: string, description: string, color: string, text: string) {
+    this.myCards = this.myCards.map((card) => {
+      if (card.id === id) {
+        card.name = name;
+        card.description = description;
+        card.color = color;
+        card.text = text;
+      }
+      return card;
+    })
+
+  }
 }
 export default new manageCards();

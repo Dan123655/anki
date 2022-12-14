@@ -12,7 +12,7 @@ const BottomBar = () => {
     })
   }, []);
     return (
-      <View className='flex-row justify-between w-[100%] h-16 bottom-0 items-center bg-black'>
+      <View className='flex-row justify-between w-[100%] h-12 bottom-0 items-center bg-slate-200'>
 
         <TouchableOpacity
           className=" p-3 rounded-[20px] h-12 w-32 items-center justify-center"
@@ -22,7 +22,7 @@ const BottomBar = () => {
             console.log("Button pressed!");
           }}
         >
-          <FontAwesome name="play-circle" size={24} color="white" />
+          <FontAwesome name="play-circle" size={24} color="black" />
         </TouchableOpacity>
 
 
@@ -34,7 +34,7 @@ const BottomBar = () => {
             console.log("Button pressed!");
           }}
         >
-          <FontAwesome5 name="plus" size={24} color="white" />
+          <FontAwesome5 name="plus" size={24} color="black" />
         </TouchableOpacity>
 
 
@@ -46,7 +46,7 @@ const BottomBar = () => {
             console.log("Button pressed!");
           }}
         >
-          <FontAwesome name="sticky-note-o" size={24} color="white" />
+          <FontAwesome name="sticky-note-o" size={24} color="black" />
         </TouchableOpacity>
 
       </View>
