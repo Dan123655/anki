@@ -1,0 +1,22 @@
+import { View, Text } from 'react-native'
+import React from 'react'
+
+const CreateNewCategory = () => {
+  return (
+    <View>
+      <Text>CreateNewCategory</Text>
+      </View>
+      
+
+//FIRST ADD THE EDITING OPTION TO THE SLIDE COMPONENT -> KEEP CATEGORY AND DATA
+//FIRST ADD THE EDITING OPTION TO THE SLIDE COMPONENT -> KEEP CATEGORY AND DATA
+//FIRST ADD THE EDITING OPTION TO THE SLIDE COMPONENT -> KEEP CATEGORY AND DATA
+//FIRST ADD THE EDITING OPTION TO THE SLIDE COMPONENT -> KEEP CATEGORY AND DATA
+//FIRST ADD THE EDITING OPTION TO THE SLIDE COMPONENT -> KEEP CATEGORY AND DATA
+
+
+
+  )
+}
+
+export default CreateNewCategory

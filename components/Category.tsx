@@ -12,14 +12,13 @@ const Category = ({ categoryName }: { categoryName: string }) => {
     }, [manageCards.myCards]);
  
   const category = categoryName;
+  
   return (
 
     <TouchableOpacity 
       //@ts-expect-error
-      onPress={()=>navigation.navigate("Slideshow", { param: category })}
-      
-      
-         
+      onPress={() => { navigation.navigate("Slideshow", { param: category}); console.log("currently editin cat: "+category)}}
+
         className='bg-gray-200 w-40 h-40 my-2 rounded-[25px] items-center justify-center'>
         
               <Text className=' text-[16px] text-center text-slate-700 font-semibold'>

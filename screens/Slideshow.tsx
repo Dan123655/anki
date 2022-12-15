@@ -42,13 +42,7 @@ const Slideshow = observer(({ route }: any) => {
     }
   }
 
-  // const prevSlide = () => {
-  //   if (slideNumber > 0) {
-  //     setSlideNumber(slideNumber - 1);
-  //   } else {
-  //     setSlideNumber(cards.length - 1);
-  //   }
-  // }
+
 
 
   return (
@@ -83,7 +77,7 @@ const Slideshow = observer(({ route }: any) => {
           <Text className='text-2xl text-slate-600'>No cards in this category</Text>
           <TouchableOpacity
             //@ts-expect-error
-            onPress={() => { navigation.navigate("Editor",{cat:{category}} ) }}
+            onPress={() => { navigation.navigate("Editor",{param:{category:category}} ) }}
             className='absolute bottom-16'>
             
             <FontAwesome name="plus" size={56} color="gray" />
