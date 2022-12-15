@@ -40,4 +40,5 @@ export type myCard = {
     description: string,
     color: string,
     text: string,
+    category: string
 }

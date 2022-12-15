@@ -5,10 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 import manageCards from "../store/cardManager";
 import { observer } from "mobx-react-lite";
 
-const AddCard = observer<any>(({ route }: any) => {
-  const navigation = useNavigation<any>();
-  const editing: any = route?.params?.param;
+const Editor = observer<any>(({ route }) => {
 
+  const navigation = useNavigation<any>();
+  const editing: any = route?.params?.forEditing && route?.params?.forEditing
+  const adding: any = route?.params?.cat && route?.params?.cat
   console.log("params data ---> " + editing?.name);
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -17,6 +18,9 @@ const AddCard = observer<any>(({ route }: any) => {
   }, []);
 
   const inputRef = useRef<any>(null);
+  const [category, setCategory] = React.useState<string>(
+    editing?.category ? editing.category
+      : adding ? adding : "Math");
   const [nameSubmitted, setNameSubmitted] = React.useState<boolean>(false);
   const [descSubmitted, setDescSubmitted] = React.useState<boolean>(false);
   const [newCardName, setNewCardName] = React.useState<string>(
@@ -44,7 +48,7 @@ const AddCard = observer<any>(({ route }: any) => {
 
   return (
     //card preview
-    <View className="flex-1 items-center justify-between mt-10 px-3 py-3  pt-10">
+    <View className="flex-1 items-center justify-between mt-8 px-3 py-3  pt-8">
       <View
         className={`${color} w-[100%] min-h-[250px] max-h-[420px] rounded-[50px] flex-1 items-center justify-center`}
       >
@@ -82,8 +86,32 @@ const AddCard = observer<any>(({ route }: any) => {
         )}
       </View>
 
+{/* titles */}
+
+
+      {!nameSubmitted&&<Text className="w-[100%] text-[20px] text-center mt-3">
+        What would the
+        <Text className="font-bold"> hidden </Text>
+        side say?</Text>}
+      
+      {nameSubmitted?!descSubmitted&& <Text className="w-[100%] text-[20px] text-center mt-3">
+        What would the
+        <Text className="font-bold"> front </Text>
+        side say?</Text>:<></>}
+
+
+      
+
+
+
+
+
+      
       {!descSubmitted && (
+        <>
+
         <View className="flex-row h-[100px] mt-4 max-w-[90%]">
+
           <TextInput
             //width
             defaultValue={
@@ -91,7 +119,9 @@ const AddCard = observer<any>(({ route }: any) => {
                 ? editing?.name || newCardName
                 : editing?.description || newDesc
             }
-            placeholderTextColor={"gray"}
+            
+              placeholderTextColor={"gray"}
+            
             maxLength={nameSubmitted ? 150 : 35}
             multiline={nameSubmitted && true}
             numberOfLines={nameSubmitted ? 8 : 1}
@@ -116,7 +146,8 @@ const AddCard = observer<any>(({ route }: any) => {
               }
             }}
           />
-        </View>
+          </View>
+          </>
       )}
       {/* //color choice */}
 
@@ -186,7 +217,7 @@ const AddCard = observer<any>(({ route }: any) => {
               <Text className="text-center text-white text-[20px]">Text</Text>
             </TouchableOpacity>
           </View>
-{/* save button */}
+          {/* save button */}
 
           <TouchableOpacity
             className="bg-slate-500 h-12 w-24 rounded-full justify-center items-center mt-4"
@@ -198,7 +229,8 @@ const AddCard = observer<any>(({ route }: any) => {
                       newCardName,
                       newDesc,
                       color,
-                      text
+                      text,
+                      category
                     )
                   : manageCards.saveCard();
 
@@ -246,4 +278,4 @@ const AddCard = observer<any>(({ route }: any) => {
   );
 });
 
-export default AddCard;
+export default Editor;

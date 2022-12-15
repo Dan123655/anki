@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
-const Slide = observer(({ name, color, text, description, id }: myCard, key: number,) => {
+const Slide = observer(({ name, color, text, description, id,category, }: myCard, key: number,) => {
     const navigation=useNavigation()
     const showOptions = () => { setLongpressed(true) }
     const hideOptions = () => { setTimeout(() => { setLongpressed(false) },500) }
@@ -52,7 +52,7 @@ const Slide = observer(({ name, color, text, description, id }: myCard, key: num
 
                     <TouchableOpacity
                         //@ts-expect-error
-                        onPress={() => { navigation.navigate("AddCard", { param: { name, color, text, description, id } });setLongpressed(false) }}>
+                        onPress={() => { navigation.navigate("Editor", { forEditing: { name, color, text, description, category,id } });setLongpressed(false) }}>
                         <FontAwesome5 name="edit" size={24} color="white" />
                     </TouchableOpacity>
 

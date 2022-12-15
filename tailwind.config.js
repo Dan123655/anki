@@ -7,7 +7,8 @@ module.exports = {
   "./components/Card.{js,jsx,ts,tsx}",
   "./components/BottomBar.{js,jsx,ts,tsx}",
   "./components/Slideshow.{js,jsx,ts,tsx}",
-  "./components/Slide.{js,jsx,ts,tsx}"],
+  "./components/Slide.{js,jsx,ts,tsx}",
+  "./components/Category.{js,jsx,ts,tsx}"],
     theme: {
       extend: {},
     },

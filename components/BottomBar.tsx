@@ -30,7 +30,7 @@ const BottomBar = () => {
           className=" p-3 rounded-[20px] h-12 w-32 items-center justify-center"
           onPress={() => {
             //@ts-expect-error
-            navigation.navigate("AddCard");
+            navigation.navigate("Editor");
             console.log("Button pressed!");
           }}
         >
@@ -41,12 +41,13 @@ const BottomBar = () => {
         <TouchableOpacity
           className=" p-3 rounded-[20px] h-12 w-32 items-center justify-center"
           onPress={() => {
-            //@ts-expect-error
-            navigation.navigate("AddCard");
-            console.log("Button pressed!");
+ 
+            console.log("!!!!unsigned button!!!!!");
+            // navigation.navigate("!!!Unsigned Button!!!");
+
           }}
         >
-          <FontAwesome name="sticky-note-o" size={24} color="black" />
+          <FontAwesome name="gear" size={24} color="black" />
         </TouchableOpacity>
 
       </View>
