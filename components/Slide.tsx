@@ -52,7 +52,7 @@ const Slide = observer(({ name, color, text, description, id,category, }: myCard
 
                     <TouchableOpacity
                         //@ts-expect-error
-                        onPress={() => { navigation.navigate("Editor", { forEditing: { name, color, text, description, category,id } });setLongpressed(false) }}>
+                        onPress={() => { navigation.navigate("SelectCategory", { forEditing: { name, color, text, description,id } });setLongpressed(false) }}>
                         <FontAwesome5 name="edit" size={24} color="white" />
                     </TouchableOpacity>
 

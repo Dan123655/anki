@@ -9,7 +9,8 @@ import BottomBar from "../components/BottomBar";
 const SelectCategory = observer<any>(({ route }) =>
 {
 
-const slideEditingData = route?.params?.forEditing
+  const forEditing = route?.params?.forEditing ? route?.params?.forEditing:false
+
 
   const [cards, setCards] = React.useState<boolean>(true);
     const navigation = useNavigation();
@@ -28,8 +29,17 @@ const slideEditingData = route?.params?.forEditing
    
          {manageCards.listOfCategories.map((item: any,index) => {
              return (
-                 //@ts-expect-error
-                 <TouchableOpacity key={index} onPress={() => navigation.navigate('Editor', { param: { category: item } })}
+               <TouchableOpacity key={index} onPress={() => {
+                 if (forEditing) {
+                   forEditing.category = item
+                   //@ts-expect-error
+                   navigation.navigate('Editor', { forEditing: forEditing })
+                 }
+                 else {
+                   //@ts-expect-error
+                   navigation.navigate('Editor', { param :{ category: item } })
+                 }
+               }}
                     className='bg-gray-200 w-40 h-40 my-2 rounded-[25px] items-center justify-center'>
                      <Text className=' text-[16px] text-center text-slate-700 font-semibold'>{ item}</Text>
                 </TouchableOpacity>
