@@ -48,7 +48,7 @@ class manageCards {
     this.clear();
 
   }
-  
+
 
   deleteCard(id: string | number[]) {
     this.myCards = this.myCards.filter((card) => card.id !== id)

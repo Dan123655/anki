@@ -18,6 +18,7 @@ const Editor = observer<any>(({ route }) => {
     });
   }, []);
 
+
   const inputRef = useRef<any>(null);
   const [category, setCategory] = React.useState<string>(
     editing?.category ? editing.category
@@ -49,7 +50,7 @@ const Editor = observer<any>(({ route }) => {
     inputRef.current.clear();
   };
 
-  return (
+    return (
     //card preview
 <>
       <View className="flex-1 items-center justify-between mt-8 px-3 py-3  pt-8">
@@ -142,6 +143,7 @@ const Editor = observer<any>(({ route }) => {
                     manageCards.newName(event.nativeEvent.text);
                     setNameSubmitted(true);
                     inputRef.current.clear();
+
                   }
                   if (nameSubmitted) {
                     // manageCards.saveCard();
@@ -238,7 +240,7 @@ const Editor = observer<any>(({ route }) => {
                     : manageCards.saveCard();
 
                 }
-                navigation.navigate("Home");
+                navigation.navigate("Home", { param:{recentlyUpdatedCategory: category }});
               }}
             >
               <Text className="text-center text-white text-[20px]">Save</Text>
