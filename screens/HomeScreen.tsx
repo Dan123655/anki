@@ -44,7 +44,7 @@ const HomeScreen = observer<any>(({route }) =>
             
                   className='bg-gray-300 w-40 h-40 my-2 rounded-[25px] items-center justify-center'>
                
-                    <Text>Add new category</Text>
+                  <Text className="text-slate-600 mb-3">Add new category</Text>
                   <FontAwesome name="plus" size={56} color="gray" onPress={() =>
                     //@ts-expect-error
                     navigation.navigate("NewCategory")} />
