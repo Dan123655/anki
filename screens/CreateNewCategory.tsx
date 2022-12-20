@@ -33,16 +33,27 @@ function CreateNewCategory() {
 
 
   return (
-    <View className='bg-red-400 w-[100%] h-[100%] py-10 px-3 flex-1 justify-center items-center'>
-      <Text>create new category name</Text>
-      <Text className='text-[25px] font-bold mt-10 mb-8' >{ newCategoryName}</Text>
+    <View className='bg-slate-300 w-[100%] h-[100%] px-3 flex-1 justify-center items-center'>
+            <Text className='font-bald text-[20px]  bottom-12  text-slate-800 mb-5'>Create new category</Text>
+
+      <View
+              className='bg-gray-200 w-40 h-40  rounded-[25px] mb-10 items-center justify-center'>
+        
+        <Text className=' text-[16px] text-center text-slate-700 font-semibold'>
+          {newCategoryName.toLocaleUpperCase()}
+      </Text>
+      </View>
       {/* input */}
+      <>
+      <Text className='text-[12px] top-1 right-28 z-10'>Name</Text>
+
       <TextInput
-        className='bg-gray-200 w-[80%] h-[40px] rounded-[25px] text-[16px] text-slate-700 font-semibold px-3'
+        className='bg-gray-200 w-[80%] h-[40px] rounded-[25px] text-[16px] mb-10 text-center text-slate-700 font-semibold px-3'
         placeholder='Enter category name'
-        placeholderTextColor='gray'
+        placeholderTextColor='slate-500'
         onChangeText={(text) => handleInput(text)}
-      />
+        />
+        </>
       {/* button */}
       <TouchableOpacity
         onPress={() => {
@@ -50,8 +61,8 @@ function CreateNewCategory() {
           //@ts-expect-error
           navigation.navigate('Home')
         }}
-        className='bg-slate-500 h-12 w-24 rounded-full justify-center items-center mt-4'>
-        <Text className=' text-[16px] text-center text-slate-700 font-semibold'>CREATE</Text>
+        className='bg-slate-400 h-12 w-24 rounded-full justify-center items-center'>
+        <Text className=' text-[18px] text-center text-slate-700 font-semibold'>Save</Text>
         </TouchableOpacity>
 
         
