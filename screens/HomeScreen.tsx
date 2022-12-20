@@ -43,11 +43,14 @@ const HomeScreen = observer<any>(({route }) =>
                   onPress={() => { navigation.navigate("Slideshow", { param: category}); console.log("currently editin cat: "+category)}}
             
                   className='bg-gray-300 w-40 h-40 my-2 rounded-[25px] items-center justify-center'>
-               
-                  <Text className="text-slate-600 mb-3">Add new category</Text>
-                  <FontAwesome name="plus" size={56} color="gray" onPress={() =>
+               <TouchableOpacity className='bg-gray-200 w-20 h-20 my-2 rounded-full items-center justify-center'>
+                  {/* <Text className="text-slate-600 mb-3 mt-4">Add new</Text> */}
+
+                  <FontAwesome className="top-[100px]" name="plus" size={20} color="gray" onPress={() =>
+                      
                     //@ts-expect-error
-                    navigation.navigate("NewCategory")} />
+                      navigation.navigate("NewCategory")} />
+                    </TouchableOpacity>
                       </TouchableOpacity>}
              </>
            );

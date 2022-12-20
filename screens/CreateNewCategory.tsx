@@ -45,7 +45,7 @@ function CreateNewCategory() {
       </View>
       {/* input */}
       <>
-      <Text className='text-[12px] top-1 right-28 z-10'>Name</Text>
+      <Text className='text-[12px] top-[0px] right-[118px] text-slate-600 z-10'>Name</Text>
 
       <TextInput
         className='bg-gray-200 w-[80%] h-[40px] rounded-[25px] text-[16px] mb-10 text-center text-slate-700 font-semibold px-3'
