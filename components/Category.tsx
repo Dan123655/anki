@@ -18,8 +18,7 @@ const Category = ({ categoryName }: { categoryName: string }) => {
   return (
 
     <TouchableOpacity 
-      //@ts-expect-error
-      onPress={() => { navigation.navigate("Slideshow", { param: category }); console.log("currently editin cat: " + category); }}
+      onPress={() => { navigation.navigate("Slideshow", { param: category })}}
 
         className='bg-gray-200 w-40 h-40 my-2 rounded-[25px] items-center justify-center'>
         

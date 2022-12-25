@@ -32,10 +32,8 @@ const HomeScreen = observer<any>(({route }) =>
                 categoryName={item}
                 key={manageCards.myCards.filter((card) => card.category === item).length}
                
-                // forward={() => showCards}
               />
               </View>
-              {/* <Text className="text-[14px] ">{manageCards.myCards.filter((card) => card.category === item).length}?</Text> */}
               {i == manageCards.listOfCategories.length - 1 && 
                 <TouchableOpacity 
                   key='key'
@@ -43,8 +41,10 @@ const HomeScreen = observer<any>(({route }) =>
                   onPress={() => { navigation.navigate("Slideshow", { param: category}); console.log("currently editin cat: "+category)}}
             
                   className='bg-gray-300 w-40 h-40 my-2 rounded-[25px] items-center justify-center'>
-               <TouchableOpacity className='bg-gray-200 w-20 h-20 my-2 rounded-full items-center justify-center'>
-                  {/* <Text className="text-slate-600 mb-3 mt-4">Add new</Text> */}
+                  <TouchableOpacity className='bg-gray-200 w-20 h-20 my-2 top-3 rounded-full items-center justify-center'
+                  onPress={() =>
+                      
+                      navigation.navigate("NewCategory")}>
 
                   <FontAwesome className="top-[100px]" name="plus" size={20} color="gray" onPress={() =>
                       

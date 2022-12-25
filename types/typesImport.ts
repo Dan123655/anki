@@ -41,4 +41,5 @@ export type myCard = {
     color: string,
     text: string,
     category: string
+    hidden:boolean
 }

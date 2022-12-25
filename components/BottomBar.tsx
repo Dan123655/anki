@@ -17,9 +17,8 @@ const BottomBar = () => {
         <TouchableOpacity
           className=" p-3 rounded-[20px] h-12 w-32 items-center justify-center"
           onPress={() => {
-            //@ts-expect-error
-            navigation.navigate("Slideshow");
-            console.log("Button pressed!");
+
+            navigation.navigate("Slideshow")
           }}
         >
           <FontAwesome name="play-circle" size={24} color="black" />
@@ -29,10 +28,8 @@ const BottomBar = () => {
         <TouchableOpacity
           className=" p-3 rounded-[20px] h-12 w-32 items-center justify-center"
           onPress={() => {
-            //@ts-expect-error
-            // navigation.navigate("Editor");
-            navigation.navigate("SelectCategory");
-            console.log("Button pressed!");
+
+            navigation.navigate("SelectCategory")
           }}
         >
           <FontAwesome5 name="plus" size={24} color="black" />
@@ -41,12 +38,7 @@ const BottomBar = () => {
 
         <TouchableOpacity
           className=" p-3 rounded-[20px] h-12 w-32 items-center justify-center"
-          onPress={() => {
- 
-            console.log("!!!!unsigned button!!!!!");
-            // navigation.navigate("!!!Unsigned Button!!!");
 
-          }}
         >
           <FontAwesome name="gear" size={24} color="black" />
         </TouchableOpacity>

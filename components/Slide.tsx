@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
-const Slide = observer(({ name, color, text, description, id,category, }: myCard, key: number,) => {
+const Slide = observer(({ name, color, text, description, id,category,hidden }: myCard, key: number,) => {
     const navigation=useNavigation()
     const showOptions = () => { setLongpressed(true) }
     const hideOptions = () => { setTimeout(() => { setLongpressed(false) },500) }
@@ -22,11 +22,13 @@ const Slide = observer(({ name, color, text, description, id,category, }: myCard
     return (
         
         <TouchableOpacity
-            onPressIn={() => { hideOptions()}}
-            onLongPress={()=>{showOptions()}}
-            onPress={() => { setTapped(!tapped);hideOptions()}}
-                key={key}  className=" w-[100%] max-h-[500px] rounded-[50px] py-3 flex-1 items-center justify-center">
-            <View className={`${color} w-[90%] mt-10 rounded-[50px] shadow-sm flex-1 items-center justify-center`}>
+            
+            onPressIn={() => { hideOptions() }}
+            onLongPress={() => { showOptions() }}
+            onPress={() => { setTapped(!tapped); hideOptions() }}
+            key={key}
+            className={` w-[100%] max-h-[500px] rounded-[50px] py-3 flex-1 items-center justify-center`}>
+            <View className={`${color} w-[90%] opacity-${hidden?[50]:100} mt-10 rounded-[50px] shadow-sm flex-1 items-center justify-center`}>
         <View className='flex-row w-[90%] items-center text-center justify-center'>
                     {!tapped && <Text className={`font-semibold text-[32px] text-${text} text-center`}>{
                         description.length > 150 ? description.toLocaleUpperCase().substring(0, 150)
@@ -41,7 +43,7 @@ const Slide = observer(({ name, color, text, description, id,category, }: myCard
 
                 
 
-                {/* edit end delete buttons */}
+
 
 
                 {longpressed && <View className='absolute bottom-0 justify-between items-center flex-row  w-[60%] h-[20%]  rounded-[50px]'>
@@ -50,8 +52,17 @@ const Slide = observer(({ name, color, text, description, id,category, }: myCard
                     </TouchableOpacity>
 
 
+                    {!hidden&&<TouchableOpacity onPress={() => { console.log('cards now: ' + manageCards.myCards); manageCards.hideCard(id); console.log('cards now: '+manageCards.myCards[0].hidden) }}>
+                        <FontAwesome name="eye" size={50} color="white" />
+                    </TouchableOpacity>}
+                    {hidden && <TouchableOpacity
+                        onPress={() => { console.log('cards now: ' + manageCards.myCards); manageCards.hideCard(id); console.log('cards now: ' + manageCards.myCards[0].hidden) }}>
+                       <FontAwesome name="eye-slash" size={50} color="white" />
+                    </TouchableOpacity>}
+
+
                     <TouchableOpacity
-                        //@ts-expect-error
+
                         onPress={() => { navigation.navigate("SelectCategory", { forEditing: { name, color, text, description,id ,category} });setLongpressed(false) }}>
                         <FontAwesome5 name="edit" size={24} color="white" />
                     </TouchableOpacity>
@@ -59,7 +70,8 @@ const Slide = observer(({ name, color, text, description, id,category, }: myCard
                 </View>}
 
             </View>
-        </TouchableOpacity>
+                </TouchableOpacity>
+                
 
     )
  

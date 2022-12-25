@@ -10,8 +10,7 @@ const Editor = observer<any>(({ route }) => {
   const navigation = useNavigation<any>();
   const editing: any = route?.params?.forEditing && route.params.forEditing
   const adding: any = route?.params?.param?.category && route.params.param.category
-  console.log("provided for editing---> " + editing?.name);
-  console.log("provided for addigg to---> " + adding);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -41,8 +40,7 @@ const Editor = observer<any>(({ route }) => {
     manageCards.describeNew(newDesc);
     setDescSubmitted(true);
     inputRef.current.clear();
-    console.log("newdesc usestaet: " + newDesc);
-    console.log("new cardname usestaet" + newCardName);
+
   };
   const submitName = () => {
     manageCards.newName(newCardName);
@@ -51,13 +49,11 @@ const Editor = observer<any>(({ route }) => {
   };
 
     return (
-    //card preview
 <>
       <View className="flex-1 items-center justify-between mt-8 px-3 py-3  pt-8">
         <View
           className={`${color} w-[100%] min-h-[250px] max-h-[420px] rounded-[50px] flex-1 items-center justify-center`}
         >
-          {/* Cardname preview */}
 
           {!nameSubmitted ? (
             <View className="flex-row w-[90%] items-center text-center justify-center">
@@ -68,7 +64,6 @@ const Editor = observer<any>(({ route }) => {
               </Text>
             </View>
           ) : (
-            /* description preview*/
 
             !descSubmitted && (
               <View className="flex-row w-[90%] items-center text-center justify-center">
@@ -91,7 +86,6 @@ const Editor = observer<any>(({ route }) => {
           )}
         </View>
 
-        {/* titles */}
 
 
         {!nameSubmitted && <Text className="w-[100%] text-[20px] text-center mt-3">
@@ -114,11 +108,10 @@ const Editor = observer<any>(({ route }) => {
       
         {!descSubmitted && (
           <>
-
-            <View className="flex-row h-[100px] mt-4 max-w-[90%]">
-
+            
+            <View className="flex-1  mt-4 h-[100px] w-[100%] px-5">
+            <Text className='text-[12px] w-[20px] font-semibold text-center rounded-[5px]  top-[0px] left-[16px]   text-slate-400 z-10'>text</Text>
               <TextInput
-                //width
                 defaultValue={
                   !nameSubmitted
                     ? editing?.name || newCardName
@@ -126,13 +119,13 @@ const Editor = observer<any>(({ route }) => {
                 }
             
                 placeholderTextColor={"gray"}
-            
+                
                 maxLength={nameSubmitted ? 150 : 35}
                 multiline={nameSubmitted && true}
                 numberOfLines={nameSubmitted ? 8 : 1}
-                className={` flex-auto bg-slate-200 w-[100%] border-gray-800 text-[18px] rounded-[20px] px-1 placeholder-slate-900 text-center min-h-[50px]`}
+                className={`flex-auto border-solid border-[1px]  w-[100%] border-slate-400 text-[18px] rounded-[20px] px-1 placeholder-slate-900 text-center max-h-[190px]`}
                 ref={inputRef}
-                placeholder={`${nameSubmitted ? "Type the question" : "Type the answer"
+                placeholder={`${nameSubmitted ? "Type the front text" : "Type the hidden text"
                   }`}
                 onChangeText={(text) => {
                   !nameSubmitted && setNewCardName(text);
@@ -146,15 +139,14 @@ const Editor = observer<any>(({ route }) => {
 
                   }
                   if (nameSubmitted) {
-                    // manageCards.saveCard();
-                    // navigation.navigate("Home");
+
                   }
                 }}
               />
             </View>
           </>
         )}
-        {/* //color choice */}
+
 
         {descSubmitted && (
           <>
@@ -222,7 +214,6 @@ const Editor = observer<any>(({ route }) => {
                 <Text className="text-center text-white text-[20px]">Text</Text>
               </TouchableOpacity>
             </View>
-            {/* save button */}
 
             <TouchableOpacity
               className="bg-slate-500 h-12 w-24 rounded-full justify-center items-center mt-4"
@@ -248,7 +239,6 @@ const Editor = observer<any>(({ route }) => {
           </>
         )}
 
-        {/* next buttons */}
 
 
         {nameSubmitted && !descSubmitted && (
